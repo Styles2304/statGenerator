@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title>Stat Generator</title>
+
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/js/jquery.js"></script>
+    <script src="src/js/jquery-ui.js"></script>
+</head>
+<body>
+    <div id="controls_core">
+        <h2>Core</h2>
+        <table style="width: 100%">
+            <tr>
+                <td class="label">Armor:</td>
+                <td class="input"><input id="c_armor"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td class="label">INT:</td>
+                <td class="input"><input id="c_int"></td>
+            </tr>
+            <tr>
+                <td class="label">REF:</td>
+                <td class="input"><input id="c_ref"></td>
+            </tr>
+            <tr>
+                <td class="label">DEX:</td>
+                <td class="input"><input id="c_dex"></td>
+            </tr>
+            <tr>
+                <td class="label">BODY:</td>
+                <td class="input"><input id="c_body"></td>
+            </tr>
+            <tr>
+                <td class="label">SPD:</td>
+                <td class="input"><input id="c_spd"></td>
+            </tr>
+            <tr>
+                <td class="label">EMP:</td>
+                <td class="input"><input id="c_emp"></td>
+            </tr>
+            <tr>
+                <td class="label">CRA:</td>
+                <td class="input"><input id="c_cra"></td>
+            </tr>
+            <tr>
+                <td class="label">WILL:</td>
+                <td class="input"><input id="c_will"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td class="label">HP:</td>
+                <td class="input"><input id="c_hp"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td class="label">Feral Mod:</td>
+                <td class="input"><input id="c_feral"></td>
+            </tr>
+            <tr>
+                <td class="label">Weapon Block:</td>
+                <td class="input"><input id="c_wBlock"></td>
+            </tr>
+            <tr>
+                <td class="label">Shield Block:</td>
+                <td class="input"><input id="c_sBlock"><br></td>
+            </tr>
+            <tr>
+                <td class="label">Regeneration:</td>
+                <td class="input"><input id="c_regeneration"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td class="label">Melee:</td>
+                <td class="input"><input id="c_melee"></td>
+            </tr>
+            <tr>
+                <td class="label">Ranged:</td>
+                <td class="input"><input id="c_ranged"></td>
+            </tr>
+            <tr>
+                <td class="label">Brawling:</td>
+                <td class="input"><input id="c_brawling"></td>
+            </tr>
+            <tr>
+                <td class="label">Dodge/Escape:</td>
+                <td class="input"><input id="c_dodge"></td>
+            </tr>
+            <tr>
+                <td class="label">Athletics:</td>
+                <td class="input"><input id="c_athletics"></td>
+            </tr>
+            <tr>
+                <td class="label">Awareness:</td>
+                <td class="input"><input id="c_awareness"></td>
+            </tr>
+            <tr>
+                <td class="label">Survival:</td>
+                <td class="input"><input id="c_wildernessSurvival"></td>
+            </tr>
+            <tr>
+                <td class="label">R. Magic:</td>
+                <td class="input"><input id="c_resistMagic"></td>
+            </tr>
+            <tr>
+                <td class="label">R. Coercion:</td>
+                <td class="input"><input id="c_resistCoercion"></td>
+            </tr>
+            <tr>
+                <td class="label">Endurance:</td>
+                <td class="input"><input id="c_endurance"></td>
+            </tr>
+            <tr>
+                <td class="label">Courage:</td>
+                <td class="input"><input id="c_courage"></td>
+            </tr>
+            <tr>
+                <td class="label">Intimidate:</td>
+                <td class="input"><input id="c_intimidate"></td>
+            </tr>
+            <tr>
+                <td class="label">Physique:</td>
+                <td class="input"><input id="c_physique"></td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <button id="generateCore">Generate</button> <button id="resetCore">Reset</button>
+    </div>
+
+    <div id="outputContainer">
+        <textarea id="output" style="width: 500px; height:500px;"></textarea><br><br>
+
+        <span>Convert to 5'</span><br>
+        <input id="convertToFive_in"> <button id="convertToFive">Convert</button> <input id="convertToFive_out"><br><br>
+    
+        <span>Convert Raw</span><br>
+        <input id="convertRaw_in"> <button id="convertRaw">Convert</button> <input id="convertRaw_out"><br><br>
+
+        <span>Convert Size</span><br>
+        <input id="convertSize_in"> <button id="convertSize">Convert</button> <input id="convertSize_out">
+    </div>
+
+    <div id="controls_wj">
+        <h2>WJ</h2>
+        <table style="width: 100%">
+            <tr>
+                <td class="input"><input id="wj_awareness"></td>
+                <td class="wj_label">: Awareness</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_courage"></td>
+                <td class="wj_label">: Courage</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_endurance"></td>
+                <td class="wj_label">: Endurance</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_intimidation"></td>
+                <td class="wj_label">: Intimidation</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_resistCoercion"></td>
+                <td class="wj_label">: R. Coercion</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_resistMagic"></td>
+                <td class="wj_label">: R. Magic</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_survival"></td>
+                <td class="wj_label">: Survival</td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_armor"></td>
+                <td class="wj_label">: Armor</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_regeneration"></td>
+                <td class="wj_label">: Regeneration</td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_spd"></td>
+                <td class="wj_label">: SPD</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_hp"></td>
+                <td class="wj_label">: HP</td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_dodge"></td>
+                <td class="wj_label">: Dodge Base</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_blockBase"></td>
+                <td class="wj_label">: Block/Attack Base</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_wBlock"></td>
+                <td class="wj_label">: W. Block</td>
+            </tr>
+            <tr>
+                <td class="input"><input id="wj_sBlock"></td>
+                <td class="wj_label">: S. Block</td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr></td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <button id="generateWJ">Generate</button> <button id="resetWJ">Reset</button>
+    </div>
+
+    <div class="floatClear"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var ABILITY_SCORES = ["0", "-5", "-4", "-4", "-3", "-3", "-2", "-2", "-1", "-1", "0", "0", "+1", "+1", "+2", "+2", "+3", "+3", "+4", "+4", "+5", "+5", "+6", "+6", "+7", "+7"];
+
+            $('#generateCore').on('click', function() {
+                let _armor = Number($('#c_armor').val()),
+                    _int = Number($('#c_int').val()),
+                    _ref = Number($('#c_ref').val()),
+                    _dex = Number($('#c_dex').val()),
+                    _body = Number($('#c_body').val()),
+                    _spd = Number($('#c_spd').val()),
+                    _emp = Number($('#c_emp').val()),
+                    _cra = Number($('#c_cra').val()),
+                    _will = Number($('#c_will').val()),
+                    _hp = Number($('#c_hp').val()),
+                    _feral = Number($('#c_feral').val()),
+                    _wBlock = Number($('#c_wBlock').val()),
+                    _sBlock = Number($('#c_sBlock').val()),
+                    _melee = Number($('#c_melee').val()),
+                    _ranged = Number($('#c_ranged').val()),
+                    _brawling = Number($('#c_brawling').val()),
+                    _dodge = Number($('#c_dodge').val()),
+                    _athletics = Number($('#c_athletics').val()),
+                    _awareness = Number($('#c_awareness').val()),
+                    _wildernessSurvival = Number($('#c_wildernessSurvival').val()),
+                    _resistMagic = Number($('#c_resistMagic').val()),
+                    _resistCoercion = Number($('#c_resistCoercion').val()),
+                    _endurance = Number($('#c_endurance').val()),
+                    _courage = Number($('#c_courage').val()),
+                    _intimidate = Number($('#c_intimidate').val()),
+                    _physique = Number($('#c_physique').val()),
+                    _regeneration = Number($('#c_regeneration').val()),
+                    HP = _hp,
+                    STA = _hp,
+                    REG = _regeneration,
+                    SP = _armor,
+                    SPD = Math.round((_spd * 3.28084)/5)*5,
+                    DODGE = Math.round(_ref + _dodge),
+                    _strMod = Number(_brawling > 0) + Number(_physique > 0),
+                    STR = Math.round(((_body + _ref)/2) + ((_brawling + _physique)/_strMod)),
+                    _dexMod = Number(_dodge > 0) + Number(_athletics > 0),
+                    DEX = Math.round(((_ref + _dex)/2) + ((_dodge + _athletics)/_dexMod)),
+                    _conMod = Number(_resistMagic > 0) + Number(_resistCoercion > 0) + Number(_endurance > 0),
+                    CON = Math.round(_will + ((_resistMagic + _resistCoercion + _endurance)/_conMod)),
+                    INT = Math.round(_int + _awareness),
+                    _wisMod = Number((_awareness + _feral) > 0) + Number((_wildernessSurvival + _feral) > 0) + Number(_courage > 0),
+                    WIS = Math.round(((_emp + _cra)/2) + (((_awareness + _feral) + (_wildernessSurvival + _feral) + _courage)/3)),
+                    _chaMod = Number(_courage > 0) + Number(_intimidate > 0),
+                    CHA = Math.round(_emp + ((_courage + _intimidate)/_chaMod)),
+                    // MELEE = Math.round(_ref + _melee),
+                    // RANGED = Math.round(_dex + _ranged),
+                    MELEE = 12 + Number(ABILITY_SCORES[STR]),
+                    RANGED = 12 + Number(ABILITY_SCORES[DEX]),
+                    _wBlockMod = Number(_wBlock > 0);
+                    WBLOCK = Math.round(((STR + _ref)/2) + _wBlock) * _wBlockMod;
+                    _sBlockMod = Number(_sBlock > 0);
+                    SBLOCK = Math.round(((STR + _ref)/2) + _sBlock) * _sBlockMod;
+
+                $('#output').val('');
+
+                let _output = '| HP/STA | REG | SP | SPD | Dodge | Block (W/S) |\n| :--: | :--: | :--: | :--: | :--: | :--: |\n' +
+                                '| ' + HP + ' ' +
+                                '| ' + REG + ' ' +
+                                '| ' + SP + ' ' +
+                                '| ' + SPD + '\' ' +
+                                '| ' + DODGE + ' ' +
+                                '| ' + WBLOCK + '/' + SBLOCK + ' |\n' +
+                                '| **STR** | **DEX** | **CON** | **INT** | **WIS** | **CHA** |\n' +
+                                '| ' + ABILITY_SCORES[STR] + ' ' +
+                                '| ' + ABILITY_SCORES[DEX] + ' ' +
+                                '| ' + ABILITY_SCORES[CON] + ' ' +
+                                '| ' + ABILITY_SCORES[INT] + ' ' +
+                                '| ' + ABILITY_SCORES[WIS] + ' ' +
+                                '| ' + ABILITY_SCORES[CHA] + ' |\n\n' +
+                                '#### Base Attacks::collapsed\n' +
+                                '| Attack | Value |\n| :--: | :--: |\n' +
+                                '| Melee | ' + MELEE + ' |\n' +
+                                '| Ranged | ' + RANGED + ' |'
+                
+                $('#output').val(_output);
+            });
+            $('#generateWJ').on('click', function() {
+                let _awareness = Number($('#wj_awareness').val()),
+                    _courage = Number($('#wj_courage').val()),
+                    _endurance = Number($('#wj_endurance').val()),
+                    _intimidation = Number($('#wj_intimidation').val()),
+                    _rCoercion = Number($('#wj_resistCoercion').val()),
+                    _rMagic = Number($('#wj_resistMagic').val()),
+                    _survival = Number($('#wj_survival').val()),
+                    _armor = Number($('#wj_armor').val()),
+                    _regeneration = Number($('#wj_regeneration').val()),
+                    _spd = Number($('#wj_spd').val()),
+                    _hp = Number($('#wj_hp').val()),
+                    _dodge = Number($('#wj_dodge').val()),
+                    _blockBase = Number($('#wj_blockBase').val()),
+                    _wBlock = Number($('#wj_wBlock').val()),
+                    _sBlock = Number($('#wj_sBlock').val()),
+                    HP = _hp,
+                    STA = _hp,
+                    REG = _regeneration,
+                    SP = _armor,
+                    SPD = Math.round((_spd * 3.28084)/5)*5,
+                    WBLOCK = _wBlock,
+                    SBLOCK = _sBlock,
+                    DODGE = _dodge,
+                    STR = _blockBase - 12,
+                    DEX = _dodge - 12,
+                    _conMod = Number(_rCoercion > 0) + Number(_rMagic > 0) + Number(_endurance > 0),
+                    CON = Number(ABILITY_SCORES[Math.round((_rCoercion + _rMagic + _endurance)/_conMod)]),
+                    INT = _awareness - 12,
+                    _wisMod = Number(_survival > 0) + Number(_courage > 0),
+                    WIS = Math.round((_survival + _courage)/_wisMod) - 12,
+                    CHA = _intimidation - 12;
+
+                $('#output').val('');
+
+                let _output = '| HP/STA | REG | SP | SPD | Dodge | Block (W/S) |\n| :--: | :--: | :--: | :--: | :--: | :--: |\n' +
+                                '| ' + HP + ' ' +
+                                '| ' + REG + ' ' +
+                                '| ' + SP + ' ' +
+                                '| ' + (SPD > 0 ? SPD + '\'' : SPD) + ' ' +
+                                '| ' + DODGE + ' ' +
+                                '| ' + WBLOCK + '/' + SBLOCK + ' |\n' +
+                                '| **STR** | **DEX** | **CON** | **INT** | **WIS** | **CHA** |\n' +
+                                '| ' + (STR > 0 ? '+' + STR : STR) + ' ' +
+                                '| ' + (DEX > 0 ? '+' + DEX : DEX) + ' ' +
+                                '| ' + (CON > 0 ? '+' + CON : CON) + ' ' +
+                                '| ' + (INT > 0 ? '+' + INT : INT) + ' ' +
+                                '| ' + (WIS > 0 ? '+' + WIS : WIS) + ' ' +
+                                '| ' + (CHA > 0 ? '+' + CHA : CHA) + ' |\n\n' +
+                                '#### Base Attacks::collapsed\n' +
+                                '| Attack | Value |\n| :--: | :--: |\n' +
+                                '| Melee | ' + (12 + STR) + ' |\n' +
+                                '| Ranged | ' + (12 + DEX) + ' |'
+                
+                $('#output').val(_output);
+            });
+            $('#resetCore').on('click', function() {
+                let _inputs = $('#controls_core').find('input');
+
+                _inputs.each(function() {
+                    $(this).val('');
+                });
+            });
+            $('#resetWJ').on('click', function() {
+                let _inputs = $('#controls_wj').find('input');
+
+                _inputs.each(function() {
+                    $(this).val('');
+                });
+            });
+            
+            $('#convertToFive').on('click', function() {
+                let _meters = Number($('#convertToFive_in').val()),
+                    _feet = Math.round((_meters * 3.28084)/5)*5;
+
+                $('#convertToFive_out').val(_feet + '\'');
+            });
+
+            $('#convertRaw').on('click', function() {
+                let _meters = Number($('#convertRaw_in').val()),
+                    _raw = _meters * 3.28084,
+                    _feet = Number(_raw.toString().split('.')[0]),
+                    _inches = Math.round((Number(_raw.toString().split('.')[1].substr(0,2))/100) * 12);
+
+                $('#convertRaw_out').val(_feet + "'" + _inches + "\"");
+            });
+
+            $('#convertSize').on('click', function() {
+                let _meters = Number($('#convertSize_in').val()),
+                    _feet = _meters * 3.28084,
+                    _size;
+
+                if (_feet <= 0.5) { _size = 'Fine'; }
+                else if (_feet > 0.5 && _feet <= 1) { _size = 'Diminutive'; }
+                else if (_feet > 1 && _feet <= 2) { _size = 'Tiny'; }
+                else if (_feet > 2 && _feet <= 4) { _size = 'Small'; }
+                else if (_feet > 4 && _feet <= 8) { _size = 'Medium'; }
+                else if (_feet > 8 && _feet <= 16) { _size = 'Large'; }
+                else if (_feet > 16 && _feet <= 32) { _size = 'Huge'; }
+                else if (_feet > 32 && _feet <= 64) { _size = 'Gargantuan'; }
+                else { _size = 'Colossal'; }
+
+                $('#convertSize_out').val(_size);
+            });
+        });
+    </script>
+</body>
+</html>
